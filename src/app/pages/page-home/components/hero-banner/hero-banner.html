@@ -1,0 +1,45 @@
+<section class="hero">
+    <!-- 🌟 Background Effects (Lumières + Grille) -->
+    <div class="hero__bg">
+        <div class="grid-pattern"></div>
+        <div #glowLeft class="glow-effect glow-left"></div>
+        <div #glowRight class="glow-effect glow-right"></div>
+    </div>
+
+    <!-- 📦 Contenu Principal -->
+    <div class="container hero__container" #heroContent>
+
+        <!-- Titre H1 SEO -->
+        <h1 class="hero__title">
+            Créons ensemble le <span class="text-gradient">site web ou l'application mobile</span> qui propulse votre
+            activité.
+        </h1>
+
+        <!-- Sous-titre / Proposition de valeur -->
+        <p class="hero__description">
+            Co-construisons la solution web ou mobile <strong>sur-mesure, intuitives et performantes</strong>
+            qui fera grandir votre activité <strong>avec Évolia Tech</strong>.
+        </p>
+
+        <!-- Call to Actions -->
+        <div class="hero__actions">
+            <app-evo-button 
+                text="Nos Réalisations" 
+                link="#contact" 
+                variant="solid" 
+                color="primary"
+                icon="fa-solid fa-arrow-right">
+            </app-evo-button>
+
+            <app-evo-button 
+                text="Nous Contacter" 
+                link="#contact" 
+                preset="cream"
+                variant="outline" 
+                color="primary"
+                icon="fa-solid fa-arrow-right">
+            </app-evo-button>
+
+        </div>
+    </div>
+</section>

@@ -1,0 +1,45 @@
+@use './variables' as *;
+
+
+// Générateur de variantes de boutons
+// $name       : Nom du preset (ex: 'green')
+// $base       : Couleur principale (Fond pour solid / Texte+Bordure pour outline)
+// $text       : Couleur du texte pour le mode solid
+// $hover-bg   : Couleur de remplissage au survol
+// $hover-text : Couleur du texte une fois survolé
+
+@mixin button-variant($name, $base, $text, $hover-bg, $hover-text) {
+  
+  // Classe : .btn--green, .btn--white, etc.
+  &--#{$name} {
+    
+    // 1. STYLE SOLID (Plein)
+    &.btn--solid {
+      background-color: $base;
+      color: $text;
+      border-color: $base;
+      
+      // On définit la variable CSS pour l'effet "Directional Hover"
+      --hover-bg: #{$hover-bg}; 
+
+      &:hover {
+        color: $hover-text;
+      }
+    }
+
+    // 2. STYLE OUTLINE (Bordure)
+    &.btn--outline {
+      background-color: transparent;
+      color: $base;
+      border-color: $base;
+      
+      // Pour l'outline, le remplissage au survol est la couleur de base
+      --hover-bg: #{$base}; 
+
+      &:hover {
+        color: $text; // Le texte prend la couleur de contraste (souvent blanc ou crème)
+      }
+    }
+
+  }
+}

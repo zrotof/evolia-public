@@ -1,0 +1,121 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    // Empêche les ajustements de taille de police sur iOS
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+
+    // Scroll fluide pour les ancres
+    scroll-behavior: smooth;
+
+    // Base pour les unités rem
+    font-size: 16px;
+
+    // Hauteur minimale = viewport complet
+    min-height: 100%;
+}
+
+// --- 4. Body ---
+body {
+    min-height: 100vh;
+    min-height: 100dvh; // Dynamic viewport height (mobile)
+
+    // Rendu typographique optimal
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+
+    // Line-height accessible
+    line-height: 1.5;
+}
+
+// --- 5. Typographie ---
+// Les headings héritent de la font-size (pas de taille par défaut)
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: inherit;
+    font-weight: inherit;
+    overflow-wrap: break-word;
+}
+
+// Les paragraphes gèrent les mots longs
+p {
+    overflow-wrap: break-word;
+}
+
+// --- 6. Listes ---
+ul,
+ol {
+    list-style: none;
+}
+
+// --- 7. Liens ---
+a {
+    color: inherit;
+    text-decoration: none;
+
+    // Supprime le fond gris au tap sur mobile (Android)
+    -webkit-tap-highlight-color: transparent;
+}
+
+// --- 8. Images & Médias ---
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+img {
+    height: auto;
+
+    // Évite le drag & drop non souhaité
+    -webkit-user-drag: none;
+    user-select: none;
+}
+
+// --- 9. Formulaires ---
+// Les éléments de formulaire héritent de la typo du parent
+input,
+button,
+textarea,
+select {
+    font: inherit;
+    color: inherit;
+    background: none;
+    border: none;
+    outline: none;
+}
+
+// Boutons cliquables
+button{
+    cursor: pointer;
+
+    // Supprime le fond gris au tap sur mobile
+    -webkit-tap-highlight-color: transparent;
+}
+
+// Désactive les animations pour les utilisateurs qui le demandent
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}

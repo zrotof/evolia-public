@@ -1,0 +1,75 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; // Défini dans variables (1000)
+  transition: all 0.4s ease-in-out;
+  padding: $spacing-lg 0; // Padding initial large (aéré)
+  
+  // Fond transparent par défaut
+  background-color: transparent;
+  backdrop-filter: blur(0);
+  border-bottom: 1px solid transparent;
+
+  &__container {
+    
+    @include flex-between; // Mixin flex-between
+  }
+
+  // --- LOGO ---
+  &__brand {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-decoration: none;
+    user-select: none;
+
+    // Icône logo
+    .header__logo-icon {
+      height: 85px; // Taille initiale
+      width: auto;
+      transition: height 0.3s ease;
+    }
+
+    // Texte logo
+    .header__logo-text {
+      font-family: $font-heading; // Sora
+      font-weight: $font-weight-bold;
+      font-size: 2rem;
+      color: $light-cream;
+      margin-top: 20px;
+    }
+  }
+
+  // --- ACTIONS (Droite) ---
+  &__actions {
+    display: flex;
+    align-items: center;
+  }
+
+  // ============================================
+  // 📜 ÉTAT SCROLLED (Sticky)
+  // ============================================
+  &.scrolled {
+    padding: $spacing-sm 0; // Devient plus compact
+    
+    // Effet Glassmorphism sombre
+    background-color: rgba($dark-primary, 0.85);
+    backdrop-filter: blur(12px); // Le flou derrière
+    -webkit-backdrop-filter: blur(12px); // Pour Safari
+    border-bottom: 1px solid rgba($light-cream, 0.1); // Petite ligne de séparation
+    //box-shadow: $shadow-lg;
+
+    // Réduction de la taille du logo pour gagner de la place
+    .header__brand {
+      .header__logo-icon {
+        height: 32px;
+      }
+    }
+  }
+}

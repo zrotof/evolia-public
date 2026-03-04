@@ -1,0 +1,210 @@
+@use '../../../../../styles/variables' as *;
+
+.hero {
+    position: relative;
+    min-height: 100vh; // Prend presque tout l'écran
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; // Empêche les lumières de déborder
+    padding-top: $spacing-4xl; // Espace pour la navbar fixe future
+    
+    // --- ARRIÈRE PLAN (Lumières + Grille) ---
+    &__bg {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        pointer-events: none;
+
+        // Grille subtile en fond (comme sur ta photo)
+        .grid-pattern {
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba($light-cream, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba($light-cream, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+            mask-image: radial-gradient(circle at center, black 40%, transparent 80%);
+        }
+
+        // Effet de lumière (Glow)
+        .glow-effect {
+            position: absolute;
+            width: 300px;
+            height: 600px;
+            border-radius: 50%;
+            filter: blur(60px); // Le flou qui crée l'ambiance
+            //opacity: 0; // Géré par GSAP
+            top: -200px;
+        }
+
+        .glow-left {
+            left: 0;
+            transform: rotate(-45deg);
+            background: radial-gradient(circle, rgba($accent-green, 0.4) 0%, transparent 90%);
+        }
+
+        .glow-right {
+            top: -50%;
+            transform: translateY(50%);
+            right: -100px;
+            background: radial-gradient(circle, rgba(rgba(86, 6, 98, 0.568), 0.4) 0%, transparent 70%);
+        }
+    }
+
+
+
+    // --- CONTENU ---
+    &__container {
+        position: relative; // Passe au dessus du fond
+        z-index: 1;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: $spacing-xl;
+    }
+
+    // --- TYPOGRAPHIE ---
+    &__title {
+        max-width: 750px;
+        // La taille est gérée responsive dans styles.scss (h1), 
+        // mais on peut forcer un peu plus grand ici si besoin
+        line-height: 1;
+        letter-spacing: -1px;
+        font-weight: 600;
+        font-size: 3.3rem;
+
+        .text-gradient {
+            @include text-gradient($light-cream, $light-cream);
+        }
+    }
+
+    &__description {
+        max-width: 600px;
+        margin: 0 auto;
+        font-size: 1.1rem;
+        color: $text-muted;
+
+        strong {
+            color: $light-cream;
+            font-weight: 600;
+        }
+    }
+
+    // --- BOUTONS ---
+    &__actions {
+        display: flex;
+        gap: $spacing-lg;
+        margin-top: $spacing-lg;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        a {
+            position: relative;
+            overflow: hidden;
+            z-index: 1; // Crée un contexte d'empilement
+            padding: 1rem 2rem;
+            border-radius: 100px;
+            font-size: 1.05rem;
+            font-weight: 600;
+            border: 1px solid black;
+
+            &::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: var(--hover-bg, #0E4735); // Couleur par défaut
+                z-index: 2; // Sous le texte (5), mais au-dessus du fond de base
+                border-radius: inherit; // Suit les coins arrondis
+
+                // L'astuce : On utilise clip-path pour masquer/afficher le fond
+                // Au repos (pas survolé), le cercle est minuscule (0%)
+                // Il est positionné là où la souris est SORTIE la dernière fois
+                clip-path: circle(0% at var(--x, 50%) var(--y, 50%));
+
+                // Transition fluide pour l'agrandissement/rétrécissement
+                transition: clip-path 0.4s ease-out;
+            }
+
+            // AU SURVOL
+            &:hover {
+
+                &::before {
+                    // Le cercle s'agrandit pour couvrir tout le bouton (150%)
+                    // Mais attention : on veut qu'il grandisse DEPUIS le point d'entrée
+                    clip-path: circle(150% at var(--x, 50%) var(--y, 50%));
+                }
+            }
+
+
+
+            // LE TEXTE (Important !)
+            // On met le texte dans un span pour pouvoir le mettre au-dessus du fond
+            span {
+                position: relative;
+                z-index: 5; // Toujours au-dessus de tout
+                pointer-events: none; // Laisse passer la souris
+                transition: color 0.3s ease; // Changement de couleur fluide
+            }
+
+            // LE FOND COLORÉ (L'effet)
+        }
+
+        .our-projects {
+            background-color: $accent-green;
+            border: 2px solid transparent;
+
+            &::before {
+                background-color: $accent-green-light; // Couleur spécifique pour ce bouton
+            }
+
+            &:hover{
+                span{
+                    color: $accent-green; // Texte en vert au survol
+                }
+            }
+
+            span {
+                color: $light-cream;
+            }
+        }
+
+        .contact {
+            background: none;
+            border: 2px solid $light-cream;
+            color: $light-cream;
+
+            &::before {
+                background-color: $light-cream; // Couleur spécifique pour ce bouton
+            }
+
+            &:hover{
+                span{
+                    color: $dark-primary; // Texte en vert au survol
+                }
+            }
+
+            span {
+                color: $light-cream; // Texte en blanc
+            }
+        }
+    }
+}
+
+// Responsive mobile
+@include respond-to('md') {
+    .hero-banner {
+        &__actions {
+            flex-direction: column;
+            width: 100%;
+
+            .btn {
+                width: 100%;
+            }
+        }
+    }
+}
