@@ -2,14 +2,14 @@
 
 .hero {
     position: relative;
-    min-height: 100vh; // Prend presque tout l'écran
+    min-height: 100vh;
     display: flex;
+    flex-direction: column; // Important pour empiler Hero + Works
     align-items: center;
-    justify-content: center;
-    overflow: hidden; // Empêche les lumières de déborder
-    padding-top: $spacing-4xl; // Espace pour la navbar fixe future
+    overflow-x: hidden; // Empêche le scroll horizontal des vagues
+    padding-top: $spacing-4xl;
 
-    // --- ARRIÈRE PLAN (Lumières + Grille) ---
+// --- ARRIÈRE PLAN (Lumières + Grille) ---
     &__bg {
         position: absolute;
         inset: 0;
@@ -42,7 +42,7 @@
         .glow-left {
             left: 0;
             transform: rotate(-45deg);
-            background: radial-gradient(circle, rgba($accent-green, 0.4) 0%, transparent 90%);
+            background: radial-gradient(circle, rgba($accent-green, 0.5) 0%, transparent 90%);
         }
 
         .glow-right {
@@ -64,6 +64,7 @@
         flex-direction: column;
         align-items: center;
         gap: $spacing-xl;
+        margin-top: 9rem;
     }
 
     // --- TYPOGRAPHIE ---
@@ -191,20 +192,6 @@
 
             span {
                 color: $light-cream; // Texte en blanc
-            }
-        }
-    }
-}
-
-// Responsive mobile
-@include respond-to('md') {
-    .hero-banner {
-        &__actions {
-            flex-direction: column;
-            width: 100%;
-
-            .btn {
-                width: 100%;
             }
         }
     }

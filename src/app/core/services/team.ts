@@ -1,0 +1,99 @@
+import { Injectable } from '@angular/core';
+import { TeamMember } from '../../shared/models/team-member';
+
+@Injectable({
+  providedIn: 'root',
+})
+export class Team {
+  private _team: TeamMember[] = [
+    {
+      id: 1,
+      firstName: 'Samuel', // Mis à jour selon ton profil
+      lastName: 'Mandeng',
+      role: 'CEO & Lead Fullstack',
+      // Pro: Homme d'affaires moderne / Tech
+      photoPro:
+        'https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=800&auto=format&fit=crop',
+      // Hobby: Guitare
+      photoHobby:
+        'https://images.unsplash.com/photo-1510915361894-db8b60106cb1?q=80&w=800&auto=format&fit=crop',
+      hobbyLabel: 'Guitariste 🎸',
+      mainSkills: ['Angular', 'NestJS', 'Architecture'],
+      socials: [
+        { platform: 'LinkedIn', icon: 'faLinkedin', url: '#' },
+        { platform: 'GitHub', icon: 'faGithub', url: '#' },
+        { platform: 'Twitter', icon: 'faTwitter', url: '#' },
+      ],
+    },
+    {
+      id: 2,
+      firstName: 'Steve',
+      lastName: 'Bekou',
+      role: 'Backend Developer',
+      // Pro: Développeur backend sérieux
+      photoPro:
+        'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=800&auto=format&fit=crop',
+      // Hobby: Exploration / Nature
+      photoHobby:
+        'https://images.unsplash.com/photo-1533240332313-0db49b459ad6?q=80&w=800&auto=format&fit=crop',
+      hobbyLabel: 'Explorateur 🔍',
+      mainSkills: ['Node.js', 'PostgreSQL', 'Microservices'],
+      socials: [{ platform: 'LinkedIn', icon: 'faLinkedin', url: '#' }],
+    },
+    {
+      id: 3,
+      firstName: 'Chris',
+      lastName: '',
+      role: 'Mobile Developer',
+      // Pro: Développeur mobile
+      photoPro:
+        'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800&auto=format&fit=crop',
+      // Hobby: Gaming
+      photoHobby:
+        'https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=800&auto=format&fit=crop',
+      hobbyLabel: 'Gamer 🎮',
+      mainSkills: ['Flutter', 'Dart', 'Clean Arch'],
+      socials: [{ platform: 'GitHub', icon: 'faGithub', url: '#' }],
+    },
+    {
+      id: 4,
+      firstName: 'Donald',
+      lastName: 'Fongueng',
+      role: 'UI/UX Designer',
+      // Pro: Créatif / Designer
+      photoPro:
+        'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=800&auto=format&fit=crop',
+      // Hobby: Boxe
+      photoHobby:
+        'https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?q=80&w=800&auto=format&fit=crop',
+      hobbyLabel: 'Boxeur 🥊',
+      mainSkills: ['Figma', 'Prototyping', 'Design System'],
+      socials: [
+        { platform: 'Instagram', icon: 'faInstagram', url: '#' },
+        { platform: 'Portfolio', icon: 'faGlobe', url: '#' },
+      ],
+    },
+    {
+      id: 5,
+      firstName: 'George',
+      lastName: 'Abougou',
+      role: 'Assistant de Direction',
+      // Pro: Professionnel administratif
+      photoPro:
+        'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=800&auto=format&fit=crop',
+      // Hobby: Football
+      photoHobby:
+        'https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=800&auto=format&fit=crop',
+      hobbyLabel: 'Footballeur ⚽',
+      mainSkills: ['Gestion', 'Communication', 'Agile'],
+      socials: [
+        { platform: 'LinkedIn', icon: 'faLinkedin', url: '#' },
+        { platform: 'Email', icon: 'faEnvelope', url: 'mailto:...' },
+      ],
+    },
+  ];
+
+  getTeam() {
+    return this._team;
+  }
+}

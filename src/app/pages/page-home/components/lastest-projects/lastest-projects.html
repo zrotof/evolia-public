@@ -1,0 +1,48 @@
+    <!-- 🌊 SECTION PROJETS (Intégrée) -->
+    <div class="latest-works" id="works">
+        <div class="carousel-wrapper">
+
+            <!-- Conteneur Scrollable -->
+            <div class="carousel-container" #carouselContainer
+                 (mouseenter)="pauseGallery()"
+                 (mouseleave)="resumeGallery()">
+
+                @for (work of latestWorks; track $index) {
+                <div class="work-card" (click)="onProjectChoosed($index)">
+                    <div class="image-wrapper">
+                        <!-- Image Optimisée -->
+                        <img [ngSrc]="work.image" [alt]="work.title" fill priority>
+
+                        <!-- Badges Tech
+                        <ul class="tech-tags">
+                            @for (tech of work.tags; track $index) {
+                                <li>{{tech}}</li>
+                            }
+                        </ul>
+                           <div class="card-footer">
+                        <h3>{{work.title}}</h3>
+
+                        <button class="btn-see-more">
+                            <span>Voir plus</span>
+                            <fa-icon [icon]="'faArrowRight' | toFaIcon"></fa-icon>
+                        </button>
+                    </div>
+                    -->
+                    </div>
+
+
+                </div>
+                }
+            </div>
+
+            <!-- Boutons de Navigation -->
+            <div class="nav-buttons">
+                <button class="nav-btn prev" (click)="prevWork()" aria-label="Projet précédent">
+                    <fa-icon [icon]="'faAngleLeft' | toFaIcon"></fa-icon>
+                </button>
+                <button class="nav-btn next" (click)="nextWork()" aria-label="Projet suivant">
+                    <fa-icon [icon]="'faAngleRight' | toFaIcon"></fa-icon>
+                </button>
+            </div>
+        </div>
+    </div>

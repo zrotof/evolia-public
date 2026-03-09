@@ -17,7 +17,7 @@
     max-width: 550px;
     line-height: 1.1; // Un peu plus aéré pour la lisibilité
     letter-spacing: -1px;
-    
+
     .text-gradient {
       @include text-gradient($light-cream, $accent-green-light);
     }
@@ -40,10 +40,10 @@
     margin-top: 4rem;
   display: grid;
   gap: 1.5rem;
-  
+
   // MOBILE (1 colonne)
   grid-template-columns: 1fr;
-  grid-template-areas: 
+  grid-template-areas:
     "web"
     "mobile"
     "design"
@@ -53,7 +53,7 @@
   // TABLETTE (2 colonnes)
   @media (min-width: 768px) {
     grid-template-columns: 1fr 1fr;
-    grid-template-areas: 
+    grid-template-areas:
       "web     web"
       "mobile  design"
       "mobile  logo"
@@ -64,8 +64,8 @@
   @media (min-width: 1024px) {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(4, 170px); // Hauteur totale = 660px + gaps
-    
-    grid-template-areas: 
+
+    grid-template-areas:
       "web    web    mobile" // Ligne 1
       "web    web    mobile" // Ligne 2
       "design logo   mobile" // Ligne 3
@@ -104,7 +104,7 @@
     font-size: 0.95rem;
     color: $text-muted;
     line-height: 1.6;
-    
+
     strong { color: $light-cream; }
   }
 }
@@ -121,7 +121,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
-    margin-top: auto; // Pousse vers le bas
+    margin-top: 1rem; // Pousse vers le bas
 
     li {
       font-size: 0.8rem;
@@ -138,7 +138,7 @@
 .card--mobile {
   grid-area: mobile;
   //background: linear-gradient(180deg, $dark-secondary 0%, darken($dark-secondary, 5%) 100%);
-  
+
   // Contenu en haut
   .card__content {
     position: relative;
@@ -153,7 +153,7 @@
     width: 80%; // Prend 80% de la largeur de la carte
     max-width: 300px;
     height: auto;
-    
+
     img {
       width: 100%;
       height: auto;
@@ -177,14 +177,14 @@
   background-color: $accent-green; // Vert Émeraude plein
   border: none;
   padding: 1rem 1.5rem;
-  
+
   // Titre blanc plus grand
   .card__title {
     font-size: 1.5rem;
     color: $white;
     margin-bottom: 0.5rem;
   }
-  
+
   .card__desc {
     color: $white;
     font-weight: 600;
@@ -193,7 +193,7 @@
     line-height: 1.5;
     max-width: 330px;
   }
-  
+
   // Bouton Blanc
   // On peut surcharger le style du bouton pour qu'il soit blanc sur fond vert
 }

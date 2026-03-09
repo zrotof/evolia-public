@@ -1,0 +1,92 @@
+@use '../../../../../styles/variables' as *;
+@use '../../../../../styles/mixins' as *;
+
+.team-section {
+  padding: $spacing-4xl 0;
+  position: relative;
+
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 3rem;
+
+    .title {
+      max-width: 550px;
+    line-height: 1.1; // Un peu plus aéré pour la lisibilité
+    letter-spacing: -1px;
+
+
+      .text-gradient {
+        @include text-gradient($light-cream, $accent-green-light);
+      }
+    }
+
+    .description {
+      max-width: 500px;
+    font-size: 1.05rem;
+    color: $text-muted;
+    line-height: 1.5;
+
+    strong {
+      color: $light-cream;
+    }
+    }
+  }
+
+  .team-grid {
+    display: grid;
+    gap: $spacing-lg;
+    margin-top: 4rem;
+
+    // Responsive Grid
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+
+    // Sur grand écran, on limite la largeur pour pas que ça s'étale trop
+    @media (min-width: 1200px) {
+        // Optionnel : Grid spécifique si tu veux
+    }
+  }
+
+  // --- HIRING CARD (La dernière) ---
+  .hiring-card {
+    border-radius: $border-radius-xl;
+    background: linear-gradient(135deg, $accent-green 0%, darken($accent-green, 10%) 100%);
+    padding: $spacing-lg;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: 1px solid rgba($white, 0.1);
+    min-height: 400px; // Même hauteur approx que les autres
+
+    .hiring-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: $spacing-md;
+
+      .hiring-label {
+        //font-family: $font-mono;
+        font-size: $font-size-xs;
+        letter-spacing: 2px;
+        color: rgba($white, 0.8);
+        border: 1px solid rgba($white, 0.2);
+        padding: 4px 12px;
+        border-radius: 99px;
+      }
+
+      .hiring-title {
+        font-family: $font-heading;
+        font-size: $font-size-2xl;
+        color: $white;
+        margin: 0;
+      }
+
+      .hiring-desc {
+        color: rgba($white, 0.9);
+        font-size: $font-size-sm;
+        margin-bottom: $spacing-sm;
+      }
+    }
+  }
+}

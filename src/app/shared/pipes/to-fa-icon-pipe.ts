@@ -8,6 +8,8 @@ import {
   faArrowRight,
   faArrowLeft,
   faAngleDown,
+  faAngleRight,
+  faAngleLeft,
   faAngleUp,
   faChevronRight,
 
@@ -50,6 +52,8 @@ import {
 // --- MAPPING OPTIMISÉ (O(1) Access) ---
 const ICONS_MAP: Record<string, IconProp> = {
   // --- Navigation ---
+  'faAngleRight': faAngleRight,
+  'faAngleLeft': faAngleLeft,
   'faArrowRight': faArrowRight,
   'faArrowLeft': faArrowLeft,
   'faAngleDown': faAngleDown,

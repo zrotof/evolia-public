@@ -1,0 +1,46 @@
+<div class="team-card">
+  <!-- IMAGE WRAPPER (Flip Effect) -->
+  <div class="card-image">
+    <img [src]="member().photoPro" [alt]="member().firstName" class="img-pro" />
+    <img [src]="member().photoHobby" [alt]="member().hobbyLabel" class="img-hobby" />
+
+    <!--
+    <div class="hobby-badge">
+      <span>{{ member().hobbyLabel }}</span>
+    </div>
+  --></div>
+
+  <!-- INFO CONTENT -->
+  <div class="card-content">
+    <div class="header-info">
+      <h3 class="name">
+        {{ member().firstName }} <span class="lastname">{{ member().lastName }}</span>
+      </h3>
+      <p class="role">{{ member().role }}</p>
+    </div>
+
+    <!--
+    TECH SKILLS (Texte)
+    <div class="tech-tags">
+      @for (skill of member().mainSkills; track skill) {
+        <span class="tag">{{ skill }}</span>
+      }
+    </div>
+-->
+    <!-- SOCIALS (Icones) -->
+    <div class="socials">
+      @for (social of member().socials; track social.platform) {
+        <!-- Tooltip basé sur social.platform -->
+        <a
+          [href]="social.url"
+          target="_blank"
+          class="social-link"
+          [attr.data-tooltip]="social.platform"
+        >
+          <!-- Icone basée sur social.icon -->
+          <fa-icon [icon]="social.icon | toFaIcon"></fa-icon>
+        </a>
+      }
+    </div>
+  </div>
+</div>

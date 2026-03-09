@@ -5,9 +5,7 @@ import { EvoButton } from '../../../../shared/components/ui/evo-button/evo-butto
   selector: 'app-hero-banner',
   templateUrl: './hero-banner.html',
   styleUrl: './hero-banner.scss',
-  imports: [
-    EvoButton
-  ],
+  imports: [EvoButton],
 })
 export class HeroBanner {
 
