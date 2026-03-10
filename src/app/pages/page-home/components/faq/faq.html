@@ -1,0 +1,52 @@
+<section class="faq-section" id="faq">
+  <div class="container faq-container">
+
+    <!-- COLONNE GAUCHE : Intro + CTA -->
+    <div class="faq-header">
+      <h2 class="faq-title">
+        Vos questions, nos réponses.
+      </h2>
+      <p class="faq-desc">
+        Tout ce que vous devez savoir avant de lancer votre projet avec <strong>Évolia Tech</strong>.
+        Transparence et clarté sont nos maîtres mots.
+      </p>
+
+      <div class="faq-action">
+        <p class="action-text">Vous ne trouvez pas votre réponse ?</p>
+        <app-evo-button
+          text="Poser ma question"
+          link="#contact"
+          preset="cream"
+          variant="outline">
+        </app-evo-button>
+      </div>
+    </div>
+
+    <!-- COLONNE DROITE : Liste Accordéon -->
+    <div class="faq-list">
+      @for (item of faqItems; track $index) {
+        <div class="faq-item" [class.is-open]="openIndex() === $index">
+
+          <!-- Header de la question (Cliquable) -->
+          <button class="faq-question" (click)="toggle($index)" [attr.aria-expanded]="openIndex() === $index">
+            <span class="question-text">{{ item.question }}</span>
+
+            <!-- Icône Animated (+ / -) -->
+            <div class="icon-wrapper">
+              <fa-icon [icon]="'faPlus' | toFaIcon" class="icon-plus"></fa-icon>
+            </div>
+          </button>
+
+          <!-- Corps de la réponse (Animé en CSS grid) -->
+          <div class="faq-answer-wrapper">
+            <div class="faq-answer">
+              <p>{{ item.answer }}</p>
+            </div>
+          </div>
+
+        </div>
+      }
+    </div>
+
+  </div>
+</section>

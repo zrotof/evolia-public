@@ -33,7 +33,8 @@ import {
   faCheck,
   faXmark,
   faSearch,
-  faPlay
+  faPlay,
+  faPlus
 } from '@fortawesome/free-solid-svg-icons';
 
 import {
@@ -79,6 +80,7 @@ const ICONS_MAP: Record<string, IconProp> = {
   'faXmark': faXmark,
   'faSearch': faSearch,
   'faPlay': faPlay,
+  'faPlus': faPlus,
   // --- Brands ---
   'faLinkedin': faLinkedin,
   'faTwitter': faTwitter,

@@ -4,6 +4,7 @@ import { ServicesGrid } from './components/services-grid/services-grid';
 import { Testimonials } from "./components/testimonials/testimonials";
 import { Team } from './components/team/team';
 import { LastestProjects } from './components/lastest-projects/lastest-projects';
+import { Faq } from './components/faq/faq';
 
 @Component({
   selector: 'app-page-home',
@@ -14,7 +15,8 @@ import { LastestProjects } from './components/lastest-projects/lastest-projects'
     LastestProjects,
     ServicesGrid,
     Testimonials,
-    Team
+    Team,
+    Faq
 ]
 })
 export default class PageHome {
