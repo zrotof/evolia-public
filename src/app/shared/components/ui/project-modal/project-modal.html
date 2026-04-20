@@ -1,31 +1,37 @@
-<p-dialog 
-  [visible]="isVisible()" 
-  [modal]="true" 
-  [dismissableMask]="true"
-  [showHeader]="false"
-  styleClass="project-modal"
-  (onHide)="onModalClosed()">
+@if (isOpen()) {
+  <!-- Backdrop -->
+  <div class="modal-overlay" (click)="closeModal()">
+    
+    <!-- Contenu de la modale -->
+    <div class="modal-content" (click)="$event.stopPropagation()">
 
-  @if (modalImage() || contentComponent()) {
-    <div class="modal-layout">
-      
-      <div class="media-side">
-        <img [ngSrc]="modalImage()" alt="Visuel du projet" fill priority>
-        <div class="media-overlay"></div>
-      </div>
-  
-      <div class="content-side">
-        <button class="close-overlay-btn" (click)="onModalClosed()" title="Fermer">
-          <fa-icon [icon]="'faXmark' | toFaIcon "></fa-icon>
-        </button>
-  
-        <div class="dynamic-content-injector">
-          <ng-container 
-            *ngComponentOutlet="contentComponent(); inputs: componentInputs()">
-          </ng-container>
+      <!-- Header -->
+      <app-project-modal-header
+        [title]="project()?.clientName || ''"
+        [scrollProgress]="scrollProgress()"
+        [estimatedReadTime]="estimatedReadTime()"
+        (close)="closeModal()"
+      />
+
+      <!-- Corps de la modale -->
+      <div class="modal-layout">
+        <!-- Sidebar gauche -->
+        <div class="media-side">
+          <app-project-modal-sidebar
+            [data]="sidebarData()"
+            [onScrollTo]="scrollTo.bind(this)"
+          />
+        </div>
+
+        <!-- Contenu principal -->
+        <div class="content-side" (scroll)="onScroll($event)">
+          <div class="dynamic-content-injector">
+            <main class="project-body">
+              <ng-container *ngComponentOutlet="currentComponent()"></ng-container>
+            </main>
+          </div>
         </div>
       </div>
-  
     </div>
-  }
-</p-dialog>
+  </div>
+}

@@ -1,0 +1,51 @@
+@use '../../../styles/variables' as *;
+
+.footer {
+  width: 100%;
+  padding-bottom: 2rem; // Un peu d'espace en bas du site
+
+  .brand {
+    width: 100%;
+    container-type: inline-size;
+    text-align: center;
+    margin-bottom: 4rem;
+    display: flex;
+    justify-content: center;
+
+    // On garde l'overflow hidden pour l'animation GSAP (le texte qui monte),
+    // MAIS on ajoute du padding vertical pour que le texte ne soit pas coupé à l'intérieur.
+    overflow: hidden;
+    padding: 2rem 0; // <--- TRÈS IMPORTANT : Laisse de la place pour les accents et les ombres
+    margin-top: -2rem; // Compense le padding pour garder le layout propre
+
+    .brand-container {
+      container-type: inline-size;
+      width: 100%;
+
+      .company-name {
+        margin: 0;
+        font-weight: 900;
+        white-space: nowrap;
+        font-size: 16cqw;
+        color: $light-cream;
+        text-align: center;
+        font-family: $font-heading; // Sora
+        font-weight: $font-weight-bold;
+
+        // On force un line-height légèrement supérieur à 1 pour les polices massives
+        line-height: 1;
+        display: block;
+
+        // On enlève les marges par défaut qui pourraient pousser le texte hors du cadre
+        padding: 0;
+
+        letter-spacing: -0.02em;
+        will-change: transform, opacity;
+
+        // Petit bonus pour lisser le rendu des bords des lettres
+        -webkit-font-smoothing: antialiased;
+        transform-style: preserve-3d;
+      }
+    }
+  }
+}

@@ -1,105 +1,86 @@
 @use '../../../../../styles/variables' as *;
 
-
-.project-modal {
-  width: 100%;
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
   height: 100vh;
-  max-height: 100% !important;
-  border-radius: 0 !important;
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.3s ease forwards;
+}
 
-  .p-dialog-content {
-    padding: 0 !important;
-    border-radius: 0;
-    overflow: hidden;
-  }
+.modal-content {
+  width: 100%;
+  height: 100%;
+  background: $dark-tertiary;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
+  animation: modalSlideIn 0.4s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+}
 
-  // Le conteneur Flexbox principal
-  .modal-layout {
-    display: flex;
-    width: 100%;
-    height: 100%;
-  
-    // Adaptation mobile/tablette
-    @media (max-width: 992px) {
-      flex-direction: column; // Empilement vertical
-    }
-    // GAUCHE : SECTION VISUELLE (FIXE)
-    .media-side {
-      flex: 1; // Un peu plus large que la partie texte
-      position: relative;
-      height: 100%;
-    
-      img {
-        object-fit: cover; // L'image remplit l'espace sans se déformer
-      }
-    
-      .media-overlay {
-        position: absolute;
-        inset: 0;
-        // Gradient subtil pour la transition avec le fond sombre
-        background: linear-gradient(to right, rgba(8, 8, 8, 0.5), transparent 15%);
-      }
-    }
-  
-    // DROITE : SECTION CONTENU
-    .content-side {
-      flex: 1;
-      background-color: $dark-primary;
-      display: flex;
-      flex-direction: column;
-      position: relative;
-      height: 100%; // Important pour le scroll interne
-    
-      // Bouton de fermeture unique
-      .close-overlay-btn {
-        position: absolute;
-        top: 1.5rem;
-        right: 1.5rem;
-        z-index: 100; // Toujours au-dessus
-        background-color: $dark-secondary;
-        color: $light-gray;
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        width: 44px;
-        height: 44px;
-        border-radius: 50%;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    
-        &:hover {
-          background: $light-gray ;
-          color: $dark-primary;
-        }
-      }
-    
-      // Le conteneur qui scrolle
-      .dynamic-content-injector {
-        flex: 1;
-        overflow-y: auto; // PERMET LE SCROLL UNIQUEMENT ICI
-        padding: 4.5rem 3.5rem; // Larges paddings pour aérer
-    
-        // Personnalisation de la scrollbar (Webkit)
-        &::-webkit-scrollbar {
-          width: 5px; // Très fine
-        }
-        &::-webkit-scrollbar-track {
-          background: transparent;
-        }
-        &::-webkit-scrollbar-thumb {
-          background: rgba(255, 255, 255, 0.1); // Gris très subtil
-          border-radius: 10px;
-    
-          &:hover {
-            background: rgba(0, 255, 157, 0.3); // Devient vert au survol
-          }
-        }
-      }
-    }
+.modal-layout {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+
+  @media (max-width: 992px) {
+    flex-direction: column;
   }
 }
 
+.media-side {
+  width: 450px;
+  background: $dark-secondary;
+  padding: 1rem;
+  overflow-y: auto;
+  border-right: 1px solid rgba($light-cream, 0.05);
+}
 
+.content-side {
+  flex: 1;
+  padding: 2.5rem 5rem;
+  overflow-y: auto;
+  background: $dark-primary;
+}
 
+.dynamic-content-injector {
+  display: flex;
+  flex-direction: column;
+  gap: 4.5rem;
+}
 
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Optionnel : animation de fermeture */
+:host-context(.closing) .modal-content {
+  animation: modalSlideOut 0.3s ease forwards;
+}
+
+@keyframes modalSlideOut {
+  to {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+}

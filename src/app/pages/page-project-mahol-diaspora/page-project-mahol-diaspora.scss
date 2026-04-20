@@ -1,0 +1,120 @@
+@use '../../../styles/variables' as *;
+
+.project-detail-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  margin-bottom: 5rem;
+
+  .project-story-header {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    .agency-label {
+      padding: 0.5rem 1rem;
+      border: 1px solid $text-muted;
+      border-radius: 100px;
+      width: fit-content;
+      color: $text-muted;
+      font-size: 0.92rem;
+    }
+
+    h2 {
+      font-size: 3.3rem;
+      font-weight: 500;
+      letter-spacing: -1px;
+      margin: 0;
+      line-height: 1;
+
+      .text-gradient {
+        color: $dark-quaternary;
+      }
+    }
+
+    .impact-statement {
+      font-size: 1rem;
+      color: $text-muted;
+      line-height: 1.5;
+
+      p {
+        font-size: 1rem;
+        line-height: 1.5;
+        color: $text-muted;
+      }
+    }
+  }
+
+  .detail-section {
+    .section-badge {
+      color: $dark-quaternary;
+      font-size: 1.2rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      display: block;
+    }
+    p {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: $text-muted;
+      margin-bottom: 1.5rem;
+    }
+    ul {
+      list-style: disc;
+
+      li {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        position: relative;
+        padding-left: 1.5rem;
+        margin-bottom: 0.8rem;
+        color: $text-muted;
+      }
+    }
+  }
+
+  .highlight-box {
+    background: rgba($white, 0.02);
+    padding: 2.5rem;
+    border-radius: 15px;
+    border: 1px solid rgba($white, 0.05);
+    .feature-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 2rem;
+      .feature-item {
+        strong {
+          color: $accent-green;
+          display: block;
+          margin-bottom: 0.5rem;
+        }
+        span {
+          font-size: 0.9rem;
+          opacity: 0.6;
+        }
+      }
+    }
+  }
+
+  .results-stats {
+    display: flex;
+    gap: 4rem;
+    margin-top: 3rem;
+    .stat {
+      .number {
+        font-size: 3rem;
+        font-weight: 900;
+        color: $accent-green;
+        font-family: $font-heading;
+        display: block;
+      }
+      .label {
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        opacity: 0.5;
+      }
+    }
+  }
+}

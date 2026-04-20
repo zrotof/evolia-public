@@ -30,49 +30,4 @@
       ></app-evo-button>
     </div>
   </div>
-
-  <div class="latest-works" id="works">
-    <div class="nav-buttons">
-      <button class="nav-btn prev" (click)="move(1)" aria-label="Précédent">
-        <fa-icon [icon]="'faAngleLeft' | toFaIcon"></fa-icon>
-      </button>
-      <button class="nav-btn next" (click)="move(-1)" aria-label="Suivant">
-        <fa-icon [icon]="'faAngleRight' | toFaIcon"></fa-icon>
-      </button>
-    </div>
-    <div class="carousel-wrapper">
-      <div
-        class="carousel-container"
-        #carouselContainer
-        (mouseenter)="pauseGallery()"
-        (mouseleave)="resumeGallery()"
-      >
-        @for (work of projectsForCarousel(); track $index) {
-          <div class="work-card" (click)="onProjectClicked($index)">
-            <div class="image-wrapper">
-              <img
-                [ngSrc]="work.image"
-                [alt]="work.title"
-                fill
-                [priority]="$index < 5"
-                decoding="async"
-              />
-
-              <div class="card-overlay">
-                <h3>{{ work.title }}</h3>
-              </div>
-            </div>
-          </div>
-        }
-      </div>
-    </div>
-  </div>
 </section>
-
-<app-project-modal 
-  [isVisible]="projectService.isModalVisible()"
-  [modalImage]="projectService.selectedProject()?.modalImage ?? ''"
-  [contentComponent]="projectService.currentComponent()"
-  [componentInputs]="{ projectUrl: projectService.selectedProject()?.clientUrl }"
-  (close)="handleClose()">
-</app-project-modal>
