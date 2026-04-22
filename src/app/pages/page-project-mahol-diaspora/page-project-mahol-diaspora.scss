@@ -4,81 +4,24 @@
   display: flex;
   flex-direction: column;
   gap: 2.5rem;
-  margin-bottom: 5rem;
 
-  .project-story-header {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-
-    .agency-label {
-      padding: 0.5rem 1rem;
-      border: 1px solid $text-muted;
-      border-radius: 100px;
-      width: fit-content;
-      color: $text-muted;
-      font-size: 0.92rem;
-    }
-
-    h2 {
-      font-size: 3.3rem;
-      font-weight: 500;
-      letter-spacing: -1px;
-      margin: 0;
-      line-height: 1;
-
-      .text-gradient {
-        color: $dark-quaternary;
-      }
-    }
-
-    .impact-statement {
-      font-size: 1rem;
-      color: $text-muted;
-      line-height: 1.5;
-
-      p {
-        font-size: 1rem;
-        line-height: 1.5;
-        color: $text-muted;
-      }
+  .project-modal-story-header {
+    img{
+      margin-top: 2rem;
     }
   }
 
-  .detail-section {
-    .section-badge {
-      color: $dark-quaternary;
-      font-size: 1.2rem;
-      font-weight: 800;
-      margin-bottom: 1rem;
-      display: block;
-    }
-    p {
-      font-size: 1rem;
-      line-height: 1.6;
-      color: $text-muted;
-      margin-bottom: 1.5rem;
-    }
-    ul {
-      list-style: disc;
+  .project-modal-detail-section {
 
+    ul {
       li {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        position: relative;
-        padding-left: 1.5rem;
-        margin-bottom: 0.8rem;
         color: $text-muted;
       }
     }
   }
 
   .highlight-box {
-    background: rgba($white, 0.02);
-    padding: 2.5rem;
-    border-radius: 15px;
-    border: 1px solid rgba($white, 0.05);
+
     .feature-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;

@@ -14,7 +14,12 @@ body {
   background-color: $dark-primary;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var($font-heading);
   font-weight: 900;
   line-height: $line-height-tight;
@@ -25,27 +30,45 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
   font-size: $font-size-hero;
 
-  @include respond-to('lg') { font-size: $font-size-4xl; }
-  @include respond-to('md') { font-size: $font-size-3xl; }
-  @include respond-to('sm') { font-size: $font-size-2xl; }
+  @include respond-to('lg') {
+    font-size: $font-size-4xl;
+  }
+  @include respond-to('md') {
+    font-size: $font-size-3xl;
+  }
+  @include respond-to('sm') {
+    font-size: $font-size-2xl;
+  }
 }
 
 h2 {
   font-size: $font-size-4xl;
 
-  @include respond-to('lg') { font-size: $font-size-3xl; }
-  @include respond-to('md') { font-size: $font-size-2xl; }
+  @include respond-to('lg') {
+    font-size: $font-size-3xl;
+  }
+  @include respond-to('md') {
+    font-size: $font-size-2xl;
+  }
 }
 
 h3 {
   font-size: $font-size-2xl;
 
-  @include respond-to('md') { font-size: $font-size-xl; }
+  @include respond-to('md') {
+    font-size: $font-size-xl;
+  }
 }
 
-h4 { font-size: $font-size-xl; }
-h5 { font-size: $font-size-lg; }
-h6 { font-size: $font-size-md; }
+h4 {
+  font-size: $font-size-xl;
+}
+h5 {
+  font-size: $font-size-lg;
+}
+h6 {
+  font-size: $font-size-md;
+}
 
 p {
   font-size: $font-size-md;
@@ -92,4 +115,153 @@ button {
 // 7. Utilitaires globaux
 .container {
   @include container;
+}
+
+.project-modal-detail-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+
+  .project-modal-detail-section {
+    .section-title {
+      color: $dark-quaternary;
+      font-size: 1.8rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    p {
+      font-size: 1rem;
+      line-height: 1.5;
+      color: $text-muted;
+    }
+  }
+
+  .project-modal-highlight-box {
+    background: rgba($white, 0.02);
+    padding: 2rem;
+    border-radius: 15px;
+    border: 1px solid rgba($white, 0.05);
+  }
+
+    .part {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem !important;
+
+    h4 {
+      font-size: 1rem;
+    }
+
+    p {
+      color: $text-muted;
+      line-height: 1.5;
+    }
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+
+      li {
+        font-size: 0.98rem;
+        color: $text-muted;
+      }
+    }
+  }
+
+   #overview {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    .project-modal-title {
+      font-size: 3rem;
+      font-weight: 500;
+      letter-spacing: -1px;
+      line-height: 1;
+
+      .text-gradient {
+        color: $dark-quaternary;
+      }
+    }
+
+    .project-modal-impact-statement {
+      p {
+        font-size: 1rem;
+        line-height: 1.5;
+        color: $text-muted;
+      }
+    }
+  }
+
+  #client-context, #approach, #conclusion{
+    p{
+      margin-bottom: 1rem;
+    }
+  }
+
+  #challenges {
+    ul {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.8rem 3rem;
+      list-style-type: '-' !important;
+
+      li {
+        color: $text-muted;
+        padding-left: 0.5rem;
+      }
+    }
+  }
+
+  #solution {
+    p{
+      margin-bottom: 2rem;
+    }
+    .project-modal-highlight-box {
+      display: flex;
+    }
+  }
+
+  #process {
+    .processes-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-top: 2rem;
+
+      .process-item {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 1rem 2rem;
+
+        h4 {
+          font-size: 1rem;
+        }
+      }
+
+      hr {
+        border: 1px solid rgba(255, 255, 255, 0.05);
+      }
+    }
+  }
+
+  #lessons-learned {
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      list-style-type: '- ';
+      list-style: inside;
+
+      li {
+        font-size: 1rem;
+        line-height: 1.5;
+        color: $text-muted;
+      }
+    }
+  }
 }

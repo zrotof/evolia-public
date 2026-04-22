@@ -4,9 +4,9 @@ import { Project } from '../models/project';
 export const PROJECTS_DATA: Project[] = [
   {
     id: 1,
-    slug: 'foryou-media',
-    title: 'Média jeunesse africain',
-    clientName: 'For You Média',
+    slug: 'for-you-media-africa',
+    title: 'Plateforme média digitale panafricaine moderne',
+    clientName: 'For You Média Africa',
     image: '/images/projects/for-you-media.png',
     keyResults: [
       { icon: 'faRocket', label: 'Temps de chargement < 2s' },
@@ -14,9 +14,16 @@ export const PROJECTS_DATA: Project[] = [
       { icon: 'faChartLine', label: 'SEO optimisé' },
     ],
     sections: [
-      { id: 'concept', label: 'Le Concept' },
-      { id: 'design', label: 'Design Dynamique' },
-      { id: 'performance', label: 'Performance' },
+      { id: 'overview', label: 'Aperçu' },
+      { id: 'client-context', label: 'Le Client & Contexte' },
+      { id: 'challenges', label: 'Les Défis' },
+      { id: 'approach', label: 'Notre Approche' },
+      { id: 'solution', label: 'Notre Solution' },
+      { id: 'process', label: 'Le Processus' },
+      { id: 'result-impact', label: 'Résultats et Impact' },
+      { id: 'testimony', label: 'Témoignages' },
+      { id: 'lessons-learned', label: 'Leçons apprises' },
+      { id: 'conclusion', label: 'Conclusion et CTA' },
     ],
     seoTitle: 'For You Média | Plateforme d’Information et Divertissement Africaine',
     seoDescription:
@@ -43,8 +50,9 @@ export const PROJECTS_DATA: Project[] = [
     seoDescription:
       'Découvrez l’architecture headless Vendure et le frontend Angular ultra-rapide.',
     keywords: 'e-commerce Afrique, Vendure, NestJS',
-  }
-/*
+  },
+
+  /*
   {
     id: 3,
     slug: 'liko-auto',
@@ -66,9 +74,7 @@ export const PROJECTS_DATA: Project[] = [
       'Solution web de gestion de catalogue de véhicules et interface de recherche avancée.',
     keywords: 'négoce automobile, courtage auto, Liko Auto',
   }
-*/,
-
-  {
+*/ {
     id: 4,
     slug: 'soprano-vesinet',
     title: 'Restaurant italien immersif',

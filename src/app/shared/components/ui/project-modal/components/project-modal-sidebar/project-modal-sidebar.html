@@ -6,7 +6,7 @@
       @for (section of data()?.sections; track section.id) {
         <li>
           <button (click)="scrollTo(section.id)">
-            <span class="dot"></span>
+            <span> {{ $index + 1 }}. </span>
             {{ section.label }}
           </button>
         </li>

@@ -4,6 +4,7 @@ import { PROJECTS_DATA } from '../../shared/constants/projects.data';
 import { PageComingSoon } from '../../pages/page-coming-soon/page-coming-soon';
 import { SeoService } from './seo';
 import { PageProjectMaholDiaspora } from '../../pages/page-project-mahol-diaspora/page-project-mahol-diaspora';
+import { PageProjectForYouMediaAfrica } from '../../pages/page-project-for-you-media-africa/page-project-for-you-media-africa';
 
 @Injectable({
   providedIn: 'root',
@@ -26,6 +27,7 @@ export class ProjectService {
   private readonly projectMap: Record<string, any> = {
     default: PageComingSoon,
     'association-mahol-diaspora': PageProjectMaholDiaspora,
+    'for-you-media-africa': PageProjectForYouMediaAfrica,
   };
 
   /**
